@@ -1,0 +1,370 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--Title-->
+    <title>{%block title%}{% endblock %}</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'images/favicon.ico' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="contactcss.css"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <!--Header-->
+  <header>
+    <div class="navbar">
+
+      <!--Header logo-->  
+      <a href="{% url 'index' %}">
+        <img src="{% static 'images\lo.png' %}" id="logo" />
+      </a>
+
+      <!--Title as a Subject name-->
+      <div class="heading">
+        <h1>{% block head %} {% endblock %}</h1>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    function throttle(fn, delay) {
+      let last;
+      let timer;
+
+      return () => {
+        const now = +new Date();
+
+        if (last && now < last + delay) {
+          clearTimeout(timer);
+
+          timer = setTimeout(() => {
+            last = now;
+            fn();
+          }, delay);
+        } else {
+          last = now;
+          fn();
+        }
+      };
+    }
+
+    function onScroll() {
+      if (window.pageYOffset) {
+        $$header.classList.add("is-active");
+      } else {
+        $$header.classList.remove("is-active");
+      }
+    }
+
+    const $$header = document.querySelector(".js-header");
+
+    window.addEventListener("scroll", throttle(onScroll, 25));
+  </script>
+
+  <!--Body Starting-->
+  <body>
+
+    <!--All UNITS Container-->
+
+    <div class="center">
+
+      <!-- Unit 1 -->
+
+      <div class="card">
+        <div class="additional">
+          <div class="user-card">
+            <h1>1</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center">
+            
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c1note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c1ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit1%} {% endblock %}</h1>
+          <span class="more"></span>
+        </div>
+      </div>
+
+      <!-- Unit 2 -->
+
+      <div class="card green">
+        <div class="additional">
+          <div class="user-card">
+            <h1>2</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center"
+            >
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c2note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c2ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit2%}{% endblock %}</h1>
+          <p></p>
+          <span class="more"></span>
+        </div>
+      </div>
+
+      <!-- Unit 3 -->
+
+      <div class="card">
+        <div class="additional">
+          <div class="user-card">
+            <h1>3</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center"
+            >
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c3note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c3ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit3%}{% endblock %}</h1>
+          <p></p>
+          <span class="more"></span>
+        </div>
+      </div>
+
+      <!-- Unit 4 -->
+
+      <div class="card green">
+        <div class="additional">
+          <div class="user-card">
+            <h1>4</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center"
+            >
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c4note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c4ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit4%}{% endblock %}</h1>
+          <p></p>
+          <span class="more"></span>
+        </div>
+      </div>
+
+      <!-- Unit 5 -->
+
+      <div class="card">
+        <div class="additional">
+          <div class="user-card">
+            <h1>5</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center"
+            >
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c5note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c5ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit5%}{% endblock %}</h1>
+          <p></p>
+          <span class="more"></span>
+        </div>
+      </div>
+
+      <!-- Unit 6 -->
+
+      <div class="card green">
+        <div class="additional">
+          <div class="user-card">
+            <h1>6</h1>
+
+            <svg
+              width="110"
+              height="110"
+              viewBox="0 0 250 250"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="title desc"
+              class="center"
+            >
+              <title id="title"></title>
+              <desc id="desc"></desc>
+            </svg>
+          </div>
+          <div class="more-info">
+            <div class="stats">
+              <div>
+                <div class="title">ClassNotes</div>
+
+                <div class="value">
+                  {% block c6note %} {% endblock %}
+                </div>
+              </div>
+
+              <div class="pos">
+                <div class="title">PPt</div>
+
+                <div class="value">
+                  {% block c6ppt %} {% endblock %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="general">
+          <h1>{% block unit6%}{% endblock %}</h1>
+          <p></p>
+          <span class="more"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
